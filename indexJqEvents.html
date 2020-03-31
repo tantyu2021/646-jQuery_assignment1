@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Vecta Corp. - 24/7 365 turnkey vSolutions for agile eBusinesses</title>
+  <link href="styles/normalize.css" type="text/css" rel="stylesheet">
+  <!--<link href="styles/styles.css" type="text/css" rel="stylesheet">-->
+  <style>
+      * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+        }
+      body {
+          margin: 5px auto;
+          max-width: 760px;
+      }
+  </style>
+  <script src="js/jquery-3.4.1.min.js" type="text/javascript" charset=utf-8></script> 
+    <script src="js/scripts.js"></script>
+  <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script>
+$(function() {
+//step 16-19
+//JQUERY HTML DOM METHOD
+$('#join1').click(function(event) {
+window.alert('the First button has been clicked');
+});
+ //JQUERY BIND METHOD
+$('#join2').bind('click', function(event) {
+window.alert('the Second button has been clicked');
+});
+//on() method is faster & more consistent
+$('#join3').on('click', function(event) {
+window.alert('the Third button has been clicked');
+});
+
+        //JQUERY ON METHOD (ALTERNATE)
+        $('body').on({
+                click: function() {
+                    window.alert("Button has been clicked!");
+                }
+            }, '#join4');
+        // $('body').on('click', 'button', function () {
+        //         window.alert("Button has been clicked!");
+        //     });
+
+$(':submit').css('color', 'darkgreen');
+
+    
+//step 20-21. Handling multipley events
+$('.mouseEvents').css('width','400px').css('height','200px').css('border','1px dotted lightgrey').css('background-color','lightyellow');
+//mouseenter-mouseleave Method1
+// $('div').on("mouseenter mouseleave", function() {
+//$('body').on('mouseenter mouseleave','div' function() {
+// console.log("The mouse hovered over or left the div!");
+// });
+
+//mouseenter-mouseleave Method2..$('div').on({
+$('.mouseEvents').on({
+mouseenter: function() {
+    console.log("Hovered over the div!");    
+//window.alert("Hovered over the div!");
+},
+mouseleave: function() {
+    console.log("The mouse left the div!");
+//window.alert("The mouse left the div!");
+},
+click: function() {
+    console.log("You clicked on the div!");
+//window.alert("You clicked on the div!");
+}
+});
+
+//step 22. prevent link from being followed
+$("a").click(function(event) {
+var element = $(this);
+if (element.attr("href").match("about") ) {
+event.preventDefault();
+element.addClass("about");
+window.alert(event.target.nodeName + ' triggered the event.');
+}
+});
+
+ $('a:hover').css('color', 'red');
+$('a').click(function(event) {
+                window.alert(event.target.nodeName + ' triggered the event.');
+            });
+
+//step 23     $("div").text($(window).width());
+$(window).resize(function() {
+var width = $(window).width();
+var height = $(window).height();
+$('.mouseEvents').text("The screen width is " + width + " px. " + '' + " \nThe screen height is " + height + " px ");
+//$('.mouseEvents').text($(window).height());
+});  
+// var width = $(window).width();
+// var height = $(window).height();
+//$( "div" ).text( "The screen width is " + width + " px " + "\nThe screen height is " + height + " px " );}
+// $(window).resize(function() {
+// $('.mouseEvents').text($(window).width());
+// }); 
+
+
+var i = 0;
+//$("textarea").keypress(function(){....$('span').text(i += 1);..'output'   --with textarea ..funny
+$("input").keypress(function(){
+$('output').text(i += 1);
+});
+
+//step 24
+//$('#questions').css('background-color', 'green');
+$('#questions:hover').css('background-color', 'lightgrey');
+   
+$('#questions').focusin(function(){
+        $(this).attr('class', 'focusedin');
+    });
+
+ $('#questions').focusout(function(){
+        $(this).attr('class', 'focusedout');
+    });
+
+
+        });  
+
+  </script>
+</head>
+
+<body>
+	<main>
+		<header></header>
+	<!--	-->
+		<section>
+<!-- step 16-18-->            
+            <input type="submit" id="join1" name="join" value="First button">
+
+            <input type="submit" id="join2" name="join" value="Second button">
+
+            <input type="submit" id="join3" name="join" value="Third button"><br><br>
+<!-- step 19-->
+            <input type="submit" id="join4" value="button 4">
+            <input type="submit" id="join4" value="button 5"><br><br>
+<!-- step 23   textarea-funny..-->
+<!-- step 24-->
+            <p>Questions / Comments (45 characters max)</p>
+            <input type="questions" id="questions"  style="width: 200px;height: 50px;" maxlength="45"><br>
+            Character count: <output></output>
+            <!--<div></div>-->
+                
+<!--
+            Questions / Comments (40 characters max)<br>
+            <input id="questions" style="width: 200px;height: 50px;" maxlength="40">
+            Character count: <div></div><br>
+            -->
+<!-- step 20,21-->            
+<div class="mouseEvents" style="margin: 15px;">
+ 
+</div>
+
+<!-- step 22-->
+  <a href = "https://modulemedia.com" > modulemedia.com</a>
+
+
+
+<!-- step 25-->
+
+<!--FORM SELECTORS-->
+<h3> Please join us</h3>
+<form>
+    <form id="email_form" name="email_form" action="join.html" method="get">
+        <label for="first_name">First Name:</label><br>
+        <input type="text" id="first_name" name="first_name">
+        <span>Requared</span><br>
+
+        <label for="email_1">Email Address:</label><br>
+        <input type="text" id="email_1" name="email_1">
+        <span >Requared</span><br>
+
+        <label>&nbsp;</label>
+        <input type="submit" id="join" name="join" value="Submit">
+    <!--
+Name:<br>
+<input type="text" id="name"><br>
+Password:<br>
+<input type="password" id="name"><br>
+<input type="submit" value="submit">  -->
+</form>
+
+			<h2>Welcome</h2>
+
+			<p>With innovative approaches and advanced methodologies, <b>Vecta Corporation</b> provides scalable business solutions to help companies achieve success through revenue increase, cost management, and user satisfaction. Our approach stems from the three most important business growth aspects: helping companies reach prospects, assist in converting prospects to customers, and assist in retaining those customers. This is accomplished through our interactive solutions and expertise in providing a memorable and positive user experience.</p>
+			
+
+		</section>
+		
+		<footer></footer>
+	</main>
+</body>
+</html>

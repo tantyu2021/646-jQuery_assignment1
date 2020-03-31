@@ -23,15 +23,16 @@ var myNav = $(".navigation li");
 myNav.css({
     'border': '#929CA4 1px solid',
     'color': '#CC1C0D',
-    'padding': '3px 0 3px 20px', 
+    //'padding': '3px 0 3px 20px', 
     'background-color': '#DFE3E6'
 
 });
+$('.navigation li a').css('padding','3px 0 3px 20px');
           //or
 // $('.navigation li').css({
 //     'border': '#929CA4 1px solid',
 //     'color': '#CC1C0D',
-//     'padding': '3px 0 3px 20px', 
+ 
 //     'background-color': '#DFE3E6'
 
 // });
@@ -39,13 +40,13 @@ myNav.css({
 //$('.navigation').css('text-decoration','none');
 
 //Main Content (remove classes from <p> tag)
-$('p').removeClass('vprospect');
+//$('p').removeClass('vprospect');
 $('p').removeClass('vprospect vconvert vretain');
-$('p').removeClass('vconvert');
+//$('p').removeClass('vconvert');
 
 //$('a').html('Chevy Dealers Association');
 //$('p').wrapInner('<strong></strong>');
-$('aside p').wrapInner('<q></q>'); //:first-child
+$('aside p:first').wrapInner('<q></q>'); //:first-child
 
     //$('h1').before('<p><b>24/7 365 Turnkey vSolutions!</b></p>');
             
