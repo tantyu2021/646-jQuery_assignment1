@@ -52,8 +52,11 @@ $('aside p').wrapInner('<q></q>'); //:first-child
             //APPEND
             $('aside p:last-child').append('<br><span >Chevy Dealers Association</span>');
             //after
-            //$('aside p:last-child').after('<p>Chevy Dealers Association</p>');
+            //$('aside p:last-child').after('<br>Chevy Dealers Association');
 
+    //         var append = $('aside p:last-child').append('<br><span >Chevy Dealers Association</span>');
+    //         append.css({
+    // 'font-style': 'italic',
 
 
 
