@@ -1,23 +1,23 @@
-//jQuery Events in form tags
+//jQuery Events -step 25- in a form tag
 $(function() {
     $('form span, input placeholder').css('font-style','italic').css('color','silver');
-    //SET FOCUS TO FIRST EMAIL BOX
+    //SET FOCUS TO FIRST text BOX
     $('#name').focus();
 
 	// the handler for the click event of a submit button
-	$("#email_form").submit(
-		function(event) {
+	$("#email_form").submit(function(event) {
             var isValid = true;
             
-            	// say 'field is required'-the name entry
+            	// validate the name entry/'field is required'-
 			var name = $("#name").val().trim();
 			if (name == "") {
                 $("#name").next().text("This field is required.");
-                $("#name").css("border", "1px solid red")
+                $("#name").css("border", "1px solid red");
+                $("#name").focus();
 				isValid = false;
 			} else {
                 $("#name").next().text("");
-                $("#name").css("border", "1px solid green")
+                $("#name").css("border", "1px solid green");
 			}
 			$("#name").val(name);
 						
@@ -26,7 +26,7 @@ $(function() {
 			var email = $("#email").val().trim();
 			if (email == "") { 
                 $("#email").next().text("This field is required.");
-                $("#email").css("border", "1px solid red")
+                $("#email").css("border", "1px solid red");
 				isValid = false;
 			} else {
 				$("#email").next().text("");
@@ -46,6 +46,5 @@ $(function() {
             //     $("#txtName").css("border", "1px solid red");
             //     $("#txtName").focus();
             // }
-		}
-	);
+	});
 });
