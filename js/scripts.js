@@ -11,8 +11,7 @@ $(function() {
             	// validate the name entry/'field is required'-
 			var name = $("#name").val().trim();
 			if (name == "") {
-                $("#name").next().text("This field is required.");
-                $("#name").css("border", "1px solid red");
+                $("#name").next().text("This field is required.").css("border", "1px solid red");
                 $("#name").focus();
 				isValid = false;
 			} else {
